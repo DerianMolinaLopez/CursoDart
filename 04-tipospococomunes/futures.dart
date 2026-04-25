@@ -1,3 +1,5 @@
+import 'dart:io';
+
 /**
  * 
  * 
@@ -30,4 +32,17 @@ void main(List<String> args) {
   );
 
 
+
+//segunda parte
+
+//la lectura de un archivo pude ser sincrono o asincrono
+File file = new File("04-tipospococomunes/assets/personas.txt");
+
+
+print(Directory.current.path);
+Future<String> f = file.readAsString();
+
+f.then((contenido) => print(contenido))
+ .catchError((error) => print('Error al leer el archivo: $error'));
+print('fin del main');//primero se imprime este
 }
